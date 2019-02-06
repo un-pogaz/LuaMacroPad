@@ -66,6 +66,19 @@ if (num1 > num2) then device = string.sub(device, num2 + 1);
 elseif (num1 < num2) then device = string.sub(device, num1 + 1);
 end;
 
+local num3 = string.find(device, "{");
+if (num3 == nil) then num1 = 0 end;
+	if (num3 > 0 and (num3 < num1 or num3 < num2)) then
+	local num1 = string.find(device, "#");
+	local num2 = string.find(device, "&");
+	if (num1 == nil) then num1 = 0 end;
+	if (num2 == nil) then num2 = 0 end;
+	
+	if (num1 > num2) then device = string.sub(device, num2 + 1);
+	elseif (num1 < num2) then device = string.sub(device, num1 + 1);
+	end;
+end;
+
 num1 = string.find(device, "#");
 num2 = string.find(device, "&");
 if (num1 == nil) then num1 = 0 end;
