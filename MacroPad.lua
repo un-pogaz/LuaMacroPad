@@ -5,8 +5,9 @@ local deviceID = "PNP0303";
 -- Defined here your Macros, used the values obtained with “MacroPad - test”
 -- To define a key combination, write the values in order of execution and separated by commas
 
--- lmc_spawn() lmc_keys() print() lmc_sleep()
--- lmc_sleep_step() lmc_sleep_text()
+-- lmc_spawn() print("") lmc_sleep(ms)
+-- mp_keys_input(keys_send, input) mp_keys_text(text)
+															-- mp_keys(keys_send) mp_sleep_input(n_input) mp_sleep_text(text)
 local macros = {
 	
 	["96"] = function() -- 0
@@ -98,7 +99,7 @@ local macros = {
 -- Advanced
 
 -- Time delay for executing keys actions, in ms. A too fast execution does cause a unexpected behaviour.
-local t_step = 25;
+local t_input = 25;
 
 --[[ how to use
 
@@ -190,15 +191,23 @@ The argument of lmc_sleep is delay in miliseconds
 
 ]]
 
---[[ function intern
+--[[ function intern  mp_
 
-lmc_keys()
-Uses the same syntax as lmc_send_keys(), but allows a delay between the execution of each key.
+mp_keys_input(keys_send, input)
+Sends the specify keys, uses the syntax of lmc_send_keys().
+Entered in the second argument the number of steps executed.
 
-lmc_sleep_step()
+mp_keys_text(text)
+Write a ASCII text and wait for the number of characters in the string.
+
+
+mp_keys(keys_send)
+Uses the syntax of lmc_send_keys(), but allows a delay between the execution of each key "t_input".
+
+mp_sleep_input(n_input)
 Wait and stop the execution of the code for the number of steps entered as argument.
 
-lmc_sleep_text()
+mp_sleep_text(text)
 Wait and stop the execution of the code for the lenght of the string entered as argument.
 
 ]]
@@ -246,27 +255,37 @@ print("");
 print("LuaMacro by Petr Medek “me2d13”");
 print("\thttp://www.hidmacros.eu/forum/viewforum.php?f=9");
 print("");
-print("Original code PotentiumRLX");
+print("Original code by PotentiumRLX");
 print("\thttps://github.com/PotentiumRLX/LuaMacrosExtension");
 print("");
 
 
 lmc_device_set_name("MacroPad", deviceID);
 
-function lmc_keys(keys_send)
-	lmc_send_keys(keys_send, t_step);
-	lmc_sleep_step(1);
+function mp_keys(keys_send)
+	lmc_send_keys(keys_send, t_input);
+	mp_sleep_input(1);
 end;
 
-function lmc_sleep_step(step)
-	lmc_sleep(step * t_step);
+function mp_sleep_input(n_input)
+	lmc_sleep(n_input * t_input);
 end;
 
-function lmc_sleep_text(text)
-	n_step = string.len(text);
-	lmc_sleep_step(n_step);
+function mp_sleep_text(text)
+	n_input = string.len(text);
+	if (n_input == nil or n_input < 0) n_input = 0 end;
+	mp_sleep_input(n_input);
 end;
 
+function mp_keys_input(keys_send, input)
+	mp_keys(keys_send);
+	mp_sleep_input(input);
+end;
+
+function mp_keys_text(text)
+	mp_keys(text);
+	mp_sleep_text(text);
+end;
 
 -- PotentiumRLX code
 

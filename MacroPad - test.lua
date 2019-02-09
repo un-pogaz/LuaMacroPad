@@ -89,7 +89,7 @@ elseif (num1 < num2) then device = string.sub(device, 0, num1 - 1);
 end;
 
 print("");
-print("ID of the device: ".. device);
+print("ID of the device: " .. device);
 print("");
 print("To get a key value, press the key you want on the keyboard and its value will be displayed here.");
 print("Some keyboard keys can generate 2 “Key pressed” output, in this case, take the lowest value.");
