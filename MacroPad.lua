@@ -54,6 +54,10 @@ local macros = {
 		print(".");
 	end;
 	
+	["32"] = function()
+		print("Space");
+	end;
+	
 	["13"] = function()
 		print("Enter");
 	end;
@@ -66,24 +70,29 @@ local macros = {
 		print("-");
 	end;
 	
-	["106"] = function()
-		print("*");
+	["114"] = function()
+		print("NumLock");
 	end;
 	
 	["111"] = function()
 		print("/");
 	end;
 	
-	["9"] = function()
-		print("Tab");
+	["106"] = function()
+		print("*");
 	end;
+	
+	["8"] = function()
+		print("Del");
+	end;
+	
 	
 	["36"] = function()
 		print("Home");
 	end;
 	
-	["35"] = function()
-		print("End");
+	["9"] = function()
+		print("Tab");
 	end;
 	
 	["33"] = function()
@@ -99,7 +108,7 @@ local macros = {
 -- Advanced
 
 -- Time delay for executing keys actions, in ms. A too fast execution does cause a unexpected behaviour.
-local t_input = 25;
+local t_input = 10;
 
 --[[ how to use
 
@@ -210,6 +219,9 @@ Wait and stop the execution of the code for the number of steps entered as argum
 mp_sleep_text(text)
 Wait and stop the execution of the code for the lenght of the string entered as argument.
 
+mp_write_altcode(altcode)
+Write the character associated with the "Alt Code"
+
 ]]
 
 -- Code inspired by PotentiumRLX, edited by un_pogaz
@@ -285,6 +297,14 @@ end;
 function mp_keys_text(text)
 	mp_keys(text);
 	mp_sleep_text(text);
+end;
+
+function mp_write_altcode(altcode)
+	lmc_send_input(18, 0, 0);
+	mp_sleep_input(1);
+	mp_keys_text(tostring(altcode));
+	lmc_send_input(18, 0, 2);
+	mp_sleep_input(1);
 end;
 
 -- PotentiumRLX code
