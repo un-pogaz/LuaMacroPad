@@ -10,87 +10,87 @@ local deviceID = "PNP0303";
 															-- mp_keys(keys_send) mp_sleep_input(n_input) mp_sleep_text(text)
 local macros = {
 	
-	["96"] = function() -- 0
-		print("PN 0");
+	["96"] = function()
+		print("NumPad 0");
 	end;
 	
-	["97"] = function() -- 1
-		print("PN 1");
+	["97"] = function()
+		print("NumPad 1");
 	end;
 	
-	["98"] = function() -- 2
-		print("PN 2");
+	["98"] = function()
+		print("NumPad 2");
 	end;
 	
-	["99"] = function() -- 3
-		print("PN 3");
+	["99"] = function()
+		print("NumPad 3");
 	end;
 	
-	["100"] = function() -- 4
-		print("PN 4");
+	["100"] = function()
+		print("NumPad 4");
 	end;
 	
-	["101"] = function() -- 5
-		print("PN 5");
+	["101"] = function()
+		print("NumPad 5");
 	end;
 	
-	["102"] = function() -- 6
-		print("PN 6");
+	["102"] = function()
+		print("NumPad 6");
 	end;
 	
-	["103"] = function() -- 7
-		print("PN 7");
+	["103"] = function()
+		print("NumPad 7");
 	end;
 	
-	["104"] = function() -- 8
-		print("PN 8");
+	["104"] = function()
+		print("NumPad 8");
 	end;
 	
-	["105"] = function() -- 9
-		print("PN 9");
+	["105"] = function()
+		print("NumPad 9");
 	end;
 	
-	["110"] = function() -- .
-		print("PN .");
+	["110"] = function()
+		print(".");
 	end;
 	
-	["13"] = function() -- Enter
+	["13"] = function()
 		print("Enter");
 	end;
 	
-	["107"] = function() -- +
-		print("PN +");
+	["107"] = function()
+		print("+");
 	end;
 	
-	["109"] = function() -- -
-		print("PN -");
+	["109"] = function()
+		print("-");
 	end;
 	
-	["106"] = function() -- *
-		print("PN *");
+	["106"] = function()
+		print("*");
 	end;
 	
-	["111"] = function() -- /
-		print("PN /");
+	["111"] = function()
+		print("/");
 	end;
 	
-	["9"] = function() -- Tab
+	["9"] = function()
 		print("Tab");
 	end;
 	
-	["36"] = function() -- Start
+	["36"] = function()
 		print("Home");
 	end;
 	
-	["35"] = function() -- End
+	["35"] = function()
 		print("End");
 	end;
 	
-	["33"] = function() -- Page Up
+	["33"] = function()
 		print("Page Up");
 	end;
 	
-	["34"] = function() -- Page Down
+	["34"] = function()
 		print("Page Down");
 	end;
 	
@@ -273,7 +273,7 @@ end;
 
 function mp_sleep_text(text)
 	n_input = string.len(text);
-	if (n_input == nil or n_input < 0) n_input = 0 end;
+	if (n_input == nil or n_input < 0) then n_input = 0 end;
 	mp_sleep_input(n_input);
 end;
 
