@@ -6,8 +6,8 @@ local deviceID = "PNP0303";
 -- To define a key combination, write the values in order of execution and separated by commas
 
 -- lmc_spawn() print("") lmc_sleep(ms)
--- mp_keys_input(keys_send, input) mp_keys_text(text)
-															-- mp_keys(keys_send) mp_sleep_input(n_input) mp_sleep_text(text)
+-- mp_keys_input(keys_send, input) mp_keys_text(text) mp_write_altcode(altcode)
+																				-- mp_keys(keys_send) mp_sleep_input(n_input) mp_sleep_text(text)
 local macros = {
 	
 	["96"] = function()
@@ -270,6 +270,9 @@ print("");
 print("Original code by PotentiumRLX");
 print("\thttps://github.com/PotentiumRLX/LuaMacrosExtension");
 print("");
+print("Actual script by un-pogaz");
+print("\thttps://github.com/un-pogaz/LuaMacroPad");
+print("");
 
 
 lmc_device_set_name("MacroPad", deviceID);
@@ -333,7 +336,7 @@ lmc_set_handler("MacroPad", function(pressByte, pressDirection)
 	else
 		if not pressed["ID:" .. tostring(pressByte)] then
 			pressed["ID:" .. tostring(pressByte)] = true;
-			-- print("You pressed: " .. tostring(pressByte) .. "."); -- Feedback for pressed key
+			-- print("You pressed: " .. tostring(pressByte) .. "."); -- Feedback the pressed key
 			if functions["ID:" .. tostring(pressByte)] then
 				for _, v in pairs(functions["ID:" .. tostring(pressByte)]) do
 					local f = true;

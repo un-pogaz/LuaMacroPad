@@ -65,6 +65,6 @@ lmc_set_handler("MacroPad", function(pressByte, pressDirection)
 	if pressDirection == 0 then
 		return;
 	else
-		print("Key pressed:   " .. tostring(pressByte) .. "   ‘" .. string.char(pressByte) .. "’"); -- Feedback for pressed key
+		print("Key pressed:   " .. tostring(pressByte) .. "   ‘" .. string.char(pressByte) .. "’"); -- Feedback the pressed key
 	end;
 end);
