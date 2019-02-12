@@ -279,7 +279,7 @@ lmc_device_set_name("MacroPad", deviceID);
 
 function mp_keys(keys_send)
 	lmc_send_keys(keys_send, t_input);
-	mp_sleep_input(1);
+	mp_sleep_input(2);
 end;
 
 function mp_sleep_input(n_input)
@@ -304,9 +304,14 @@ end;
 
 function mp_write_altcode(altcode)
 	lmc_send_input(18, 0, 0);
-	mp_sleep_input(1);
 	mp_keys_text(tostring(altcode));
 	lmc_send_input(18, 0, 2);
+	mp_sleep_input(1);
+end;
+
+function mp_send_input(input)
+	lmc_send_input(input, 0, 0); -- press
+	lmc_send_input(input, 0, 2); -- release
 	mp_sleep_input(1);
 end;
 
