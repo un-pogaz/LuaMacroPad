@@ -1,106 +1,151 @@
 
 -- Defined here the ID of the device used
-local deviceID = "PNP0303";
+local deviceID = "VID_145F";
 
 -- Defined here your Macros, used the values obtained with “MacroPad - test”
 -- To define a key combination, write the values in order of execution and separated by commas
 
 -- lmc_spawn() print("") lmc_sleep(ms)
--- mp_keys_input(keys_send, input) mp_keys_text(text) mp_write_altcode(altcode)
-																				-- mp_keys(keys_send) mp_sleep_input(n_input) mp_sleep_text(text)
+-- mp_keys_input(keys_send, input)
+-- mp_keys_text(text)
+-- mp_write_altcode(altcode)
+-- mp_write_unicode(unicode)
+								-- mp_keys(keys_send) mp_sleep_input(n_input) mp_sleep_text(text)
 local macros = {
 	
-	["96"] = function()
-		print("NumPad 0");
+	["96"] = function() -- 0
+		mp_keys_input("^%{TAB}", 2);
+		mp_sleep_input(1);
+		mp_keys_input("{ENTER}", 1);
 	end;
 	
-	["97"] = function()
-		print("NumPad 1");
+	["110"] = function() -- .
+		mp_keys_input("{END}{ENTER}", 2);
+		mp_keys_text("<p></p>");
+		mp_keys_input("{LEFT 4}", 4);
 	end;
 	
-	["98"] = function()
-		print("NumPad 2");
+	["32"] = function() -- SPACE
+		mp_keys_input("^c",1);
+		mp_keys_input("^%{TAB}", 2);
+		mp_sleep_input(3);
+		mp_keys_input("{ENTER}", 1);
 	end;
 	
-	["99"] = function()
-		print("NumPad 3");
+	["97"] = function() -- 1
+		mp_keys_text(" style=\"\" ");
+		mp_keys_input("{LEFT 2}", 2);
 	end;
 	
-	["100"] = function()
-		print("NumPad 4");
+	["98"] = function() -- 2
+		mp_keys_text(" class=\"\" ");
+		mp_keys_input("{LEFT 2}", 2);
 	end;
 	
-	["101"] = function()
-		print("NumPad 5");
+	["99"] = function() -- 3
+		mp_keys_input("{END}{ENTER}", 2);
+		mp_keys_text("<p>");
+		mp_keys_input("^v",1);
+		mp_keys_text("</p>");
+		mp_keys_input("{LEFT 4}", 4);
 	end;
 	
-	["102"] = function()
-		print("NumPad 6");
+	["100"] = function() -- 4
+		mp_keys_input("^r",1);
+		mp_keys_input("{END}", 2);
+		mp_keys_input("^+{LEFT}", 2);
+		mp_keys_input("^v",1);
+		mp_keys_input("{ENTER}", 1);
 	end;
 	
-	["103"] = function()
-		print("NumPad 7");
+	["101"] = function() -- 5
+		mp_keys_text("<span class=\"\"></span>");
+		mp_keys_input("{LEFT 9}", 9);
 	end;
 	
-	["104"] = function()
-		print("NumPad 8");
+	["102"] = function() -- 6
+		mp_write_unicode(38);
+		mp_write_unicode(35);
+		mp_keys_text("160;");
 	end;
 	
-	["105"] = function()
-		print("NumPad 9");
+	["103"] = function() -- 7
+		mp_keys_input("{END}{ENTER}", 2);
+		mp_keys_text("<ol></ol>");
+		mp_keys_input("{LEFT 5}{ENTER 2}{UP}{END}", 9);
+		mp_keys_text("<li></li>");
+		mp_keys_input("{LEFT 5}", 5);
 	end;
 	
-	["110"] = function()
-		print(".");
+	["104"] = function() -- 8
+		mp_keys_input("{END}{ENTER}", 2);
+		mp_keys_text("<li></li>");
+		mp_keys_input("{LEFT 5}", 5);
 	end;
 	
-	["32"] = function()
-		print("Space");
+	["105"] = function() -- 9
+		mp_keys_input("{END}{ENTER}", 2);
+		mp_keys_text("<ul></ul>");
+		mp_keys_input("{LEFT 5}{ENTER 2}{UP}{END}", 9);
+		mp_keys_text("<li></li>");
+		mp_keys_input("{LEFT 5}", 5);
 	end;
 	
-	["13"] = function()
-		print("Enter");
+	["13"] = function() -- ENTER
+		mp_keys_input("^v",1);
 	end;
 	
-	["107"] = function()
-		print("+");
+	["107"] = function() -- +
+		mp_keys_input("^c",1);
 	end;
 	
-	["109"] = function()
-		print("-");
+	["109"] = function() -- -
+		mp_keys_input("^x",1);
 	end;
 	
-	["114"] = function()
-		print("NumLock");
+	["8"] = function() -- DEL
+		mp_keys_input("^s",1);
 	end;
 	
-	["111"] = function()
-		print("/");
+	["111"] = function() -- /
+		mp_keys_input("^x",1);
+		mp_keys_input("{DEL 3}",3);
+		mp_keys_input("{TAB 2}",2);
+		mp_keys_input("^v",1);
+		mp_keys_input("+{TAB}",2);
+		mp_keys_input("+{TAB}",2);
+		mp_keys_input("{ENTER}",1);
 	end;
 	
-	["106"] = function()
+	["106"] = function() -- *
 		print("*");
 	end;
 	
-	["8"] = function()
-		print("Del");
-	end;
-	
-	
-	["36"] = function()
-		print("Home");
-	end;
-	
-	["9"] = function()
-		print("Tab");
-	end;
-	
-	["33"] = function()
-		print("Page Up");
-	end;
-	
-	["34"] = function()
-		print("Page Down");
+	["9"] = function() -- TAB
+		mp_keys_input("{END}{ENTER}", 2);
+		mp_keys_text("<table class=\"tcenter\">")
+		mp_keys_input("{ENTER}", 1);
+		mp_keys_text("<tbody>");
+		mp_keys_input("{ENTER}", 1);
+		mp_keys_text("<tr>");
+		mp_keys_input("{ENTER}", 1);
+		mp_keys_text("  <td>1</td>")
+		mp_keys_input("{ENTER}", 1);
+		mp_keys_text("  <td>2</td>")
+		mp_keys_input("{ENTER}", 1);
+		mp_keys_text("</tr>");
+		mp_keys_input("{ENTER}", 1);
+		mp_keys_text("<tr>");
+		mp_keys_input("{ENTER}", 1);
+		mp_keys_text("  <td>3</td>")
+		mp_keys_input("{ENTER}", 1);
+		mp_keys_text("  <td>4</td>")
+		mp_keys_input("{ENTER}", 1);
+		mp_keys_text("</tr>");
+		mp_keys_input("{ENTER}", 1);
+		mp_keys_text("</tbody>");
+		mp_keys_input("{ENTER}", 1);
+		mp_keys_text("</table>");
 	end;
 	
 };
@@ -111,6 +156,33 @@ local macros = {
 local t_input = 10;
 
 --[[ how to use
+
+]]
+
+--[[ function intern  mp_
+
+mp_keys_input(keys_send, input)
+Sends the specify keys, uses the syntax of lmc_send_keys().
+Entered in the second argument the number of steps executed.
+
+mp_keys_text(text)
+Write a ASCII text and wait for the number of characters in the string.
+
+
+mp_keys(keys_send)
+Uses the syntax of lmc_send_keys(), but allows a delay between the execution of each key "t_input".
+
+mp_sleep_input(n_input)
+Wait and stop the execution of the code for the number of steps entered as argument.
+
+mp_sleep_text(text)
+Wait and stop the execution of the code for the lenght of the string entered as argument.
+
+mp_write_altcode(altcode)
+Write the character associated with the "Alt Code"
+
+mp_write_unicode(unicode)
+
 
 ]]
 
@@ -200,30 +272,6 @@ The argument of lmc_sleep is delay in miliseconds
 
 ]]
 
---[[ function intern  mp_
-
-mp_keys_input(keys_send, input)
-Sends the specify keys, uses the syntax of lmc_send_keys().
-Entered in the second argument the number of steps executed.
-
-mp_keys_text(text)
-Write a ASCII text and wait for the number of characters in the string.
-
-
-mp_keys(keys_send)
-Uses the syntax of lmc_send_keys(), but allows a delay between the execution of each key "t_input".
-
-mp_sleep_input(n_input)
-Wait and stop the execution of the code for the number of steps entered as argument.
-
-mp_sleep_text(text)
-Wait and stop the execution of the code for the lenght of the string entered as argument.
-
-mp_write_altcode(altcode)
-Write the character associated with the "Alt Code"
-
-]]
-
 -- Code inspired by PotentiumRLX, edited by un_pogaz
 --[[ PotentiumRLX credit
 	
@@ -279,7 +327,7 @@ lmc_device_set_name("MacroPad", deviceID);
 
 function mp_keys(keys_send)
 	lmc_send_keys(keys_send, t_input);
-	mp_sleep_input(2);
+	mp_sleep_input(1);
 end;
 
 function mp_sleep_input(n_input)
@@ -304,14 +352,16 @@ end;
 
 function mp_write_altcode(altcode)
 	lmc_send_input(18, 0, 0);
+	mp_sleep_input(1);
 	mp_keys_text(tostring(altcode));
 	lmc_send_input(18, 0, 2);
 	mp_sleep_input(1);
 end;
 
-function mp_send_input(input)
-	lmc_send_input(input, 0, 0); -- press
-	lmc_send_input(input, 0, 2); -- release
+function mp_write_unicode(unicode)
+	lmc_send_input(0, unicode, 4);
+	mp_sleep_input(1);
+	lmc_send_input(0, unicode, 6);
 	mp_sleep_input(1);
 end;
 
