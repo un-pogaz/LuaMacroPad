@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<!-- saved from url=(0021)https://keycode.info/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>JavaScript Event KeyCodes</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <style title="Google fonts Montserrat" rel="stylesheet" type="text/css">
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i6t8kCHKm459WRhyzbi.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i6t8kCHKm459W1hyzbi.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i6t8kCHKm459WZhyzbi.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i6t8kCHKm459Wdhyzbi.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+  </style>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  
+  <meta name="twitter:title" content="JavaScript Event KeyCodes">
+  <meta name="twitter:description" content="Keycode testing tool - which keys map to which keycodes?">
+  <meta name="twitter:creator" content="@wesbos">
+  <meta name="twitter:image" content="http://f.cl.ly/items/1Z3e0c1R36001s1D271A/ss%202014-04-28%20at%2012.08.06%20PM.png">
+  <style title="Google fonts Montserrat" rel="stylesheet" type="text/css">
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Montserrat", "sans-serif";
+  color: #424242;
+  overflow: hidden;
+  background: #f2f4f8;
+}
+.display {
+  text-align: center;
+  display: table;
+  height: 100%;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+.wrap {
+  display: table-cell;
+  vertical-align: middle;
+}
+p {
+  font-size: 100px; /* For lamers who don't support viewport sizing */
+  font-size: 40vmin;
+  text-align: center;
+  margin: 0;
+}
+p.text-display {
+  display: inline-block;
+  color: #5e5e5e;
+  font: bold 20px arial;
+  text-decoration: none;
+  text-align: center;
+  margin: 20px auto;
+  padding: 15px 20px;
+  background: #fbfbfb;
+  border-radius: 4px;
+  border-top: 1px solid #dadada;
+  box-shadow: inset 0 0 25px #e8e8e8, 0 1px 0 #c3c3c3, 0 2px 0 #c9c9c9,
+    0 2px 3px #333;
+  text-shadow: 0px 1px 0px #f5f5f5;
+  min-width: 24px;
+  font-size: 26px;
+}
+
+span.love {
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+span.love a {
+  text-decoration: none;
+  color: #d12026;
+}
+
+.twitter-follow-toggle-button {
+  vertical-align: text-bottom;
+}
+
+.twitter-share-toggle-button {
+  vertical-align: text-bottom;
+}
+
+/*
+  Added New Card layout Css
+*/
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  margin-bottom: 20px;
+}
+.card {
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 10px;
+  flex: calc(25% - 20px);
+  max-width: calc(25% - 20px);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease-out;
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0.11);
+}
+
+.card:first-child {
+  margin-left: 0;
+}
+
+.card:last-child {
+  margin-right: 0;
+}
+
+.item-location .card-main {
+  padding: 9.5px;
+}
+
+.item-location .main-description {
+  font-size: 23px;
+}
+
+.item-location .main-description span {
+  display: block;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
+    0 24px 46px rgba(220, 233, 255, 0.48);
+}
+
+.card-header {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  border-bottom: 1px solid #a2e2ff;
+  background-color: #b9e9ff;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.more-info {
+  height: 1.2em;
+  width: 1.2em;
+  float: right;
+}
+
+.more-info::before {
+  content: "(?)";
+}
+
+.deprecated-link {
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  color: #6597b2;
+  font-size: 10px;
+}
+
+.card-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.main-description {
+  font-size: 28px;
+  text-align: center;
+  min-height: 35px;
+}
+
+.text-muted {
+  font-size: 0.65em;
+  color: #ccc;
+}
+
+.table {
+  width: 50%;
+  table-layout: fixed;
+  margin: auto;
+  margin-top: 75px;
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.04);
+  border-radius: 5px;
+}
+
+.table-body {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  height: 600px;
+  background: #fff;
+}
+
+.table thead tr {
+  display: block;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.table thead {
+  font-size: 12px;
+  font-weight: 600;
+  border-bottom: 1px solid #a2e2ff;
+  background-color: #b9e9ff;
+}
+
+.table th,
+.table td {
+  padding: 5px;
+  text-align: left;
+  width: 200px;
+}
+
+.table-toggle-button {
+  font: bold 16px arial;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: #0091d4;
+  border: 2px solid #0091d4;
+  background: transparent;
+  border-radius: 5px;
+  padding: 5px 10px;
+  transition: all 0.3s ease-out;
+}
+
+.table-toggle-button:hover {
+  transform: translateY(-2px) scale(1.005) translateZ(0);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.11),
+    0 6px 9px rgba(220, 233, 255, 0.48);
+}
+
+.table-toggle-button:active {
+  transform: translateY(2px) scale(0.995) translateZ(0);
+  box-shadow: none;
+}
+
+.mobile-input input {
+  width: calc(100% - 20px);
+  height: 4rem;
+  margin: 10px;
+  font-size: 4rem;
+  border: 1px solid #dadada;
+  border-radius: 4px;
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease-out;
+}
+
+.mobile-input input:focus {
+  outline: none;
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
+    0 24px 46px rgba(220, 233, 255, 0.48);
+}
+
+@media (min-width: 601px) and (max-width: 980px) {
+  body {
+    overflow-y: auto;
+  }
+  .card {
+    flex: 45%;
+    max-width: 45%;
+  }
+  .display {
+    width: 80%;
+  }
+  .main-description {
+    min-height: 34px;
+  }
+}
+@media (max-width: 600px) {
+  body {
+    overflow-y: auto;
+  }
+  .card {
+    flex: 100%;
+    max-width: 100%;
+  }
+  .display {
+    width: 90%;
+  }
+  .table {
+    width: 100%;
+    margin-top: 4rem;
+  }
+  .table-body {
+    height: 60vh;
+  }
+}
+
+.hide {
+  display: none !important;
+}
+.active {
+  display: flex;
+}
+  </style>
+  <link rel="icon" href="data:image/png;base64,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" type="image/x-icon">
+</head>
+
+<body>
+  <canvas width="128" height="128" hidden=""></canvas>
+  <div class="display">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Key Code</th>
+          <th>Key</th>
+        </tr>
+      </thead>
+      <tbody class="table-body">
+      <tr><td>0</td><td>That key has no keycode</td></tr><tr><td>3</td><td>break</td></tr><tr><td>8</td><td>backspace / delete</td></tr><tr><td>9</td><td>tab</td></tr><tr><td>12</td><td>clear</td></tr><tr><td>13</td><td>enter</td></tr><tr><td>16</td><td>shift</td></tr><tr><td>17</td><td>ctrl</td></tr><tr><td>18</td><td>alt</td></tr><tr><td>19</td><td>pause/break</td></tr><tr><td>20</td><td>caps lock</td></tr><tr><td>21</td><td>hangul</td></tr><tr><td>25</td><td>hanja</td></tr><tr><td>27</td><td>escape</td></tr><tr><td>28</td><td>conversion</td></tr><tr><td>29</td><td>non-conversion</td></tr><tr><td>32</td><td>spacebar</td></tr><tr><td>33</td><td>page up</td></tr><tr><td>34</td><td>page down</td></tr><tr><td>35</td><td>end</td></tr><tr><td>36</td><td>home</td></tr><tr><td>37</td><td>left arrow</td></tr><tr><td>38</td><td>up arrow</td></tr><tr><td>39</td><td>right arrow</td></tr><tr><td>40</td><td>down arrow</td></tr><tr><td>41</td><td>select</td></tr><tr><td>42</td><td>print</td></tr><tr><td>43</td><td>execute</td></tr><tr><td>44</td><td>Print Screen</td></tr><tr><td>45</td><td>insert</td></tr><tr><td>46</td><td>delete</td></tr><tr><td>47</td><td>help</td></tr><tr><td>48</td><td>0</td></tr><tr><td>49</td><td>1</td></tr><tr><td>50</td><td>2</td></tr><tr><td>51</td><td>3</td></tr><tr><td>52</td><td>4</td></tr><tr><td>53</td><td>5</td></tr><tr><td>54</td><td>6</td></tr><tr><td>55</td><td>7</td></tr><tr><td>56</td><td>8</td></tr><tr><td>57</td><td>9</td></tr><tr><td>58</td><td>:</td></tr><tr><td>59</td><td>semicolon (firefox), equals</td></tr><tr><td>60</td><td>&lt;</td></tr><tr><td>61</td><td>equals (firefox)</td></tr><tr><td>63</td><td>ß</td></tr><tr><td>64</td><td>@ (firefox)</td></tr><tr><td>65</td><td>a</td></tr><tr><td>66</td><td>b</td></tr><tr><td>67</td><td>c</td></tr><tr><td>68</td><td>d</td></tr><tr><td>69</td><td>e</td></tr><tr><td>70</td><td>f</td></tr><tr><td>71</td><td>g</td></tr><tr><td>72</td><td>h</td></tr><tr><td>73</td><td>i</td></tr><tr><td>74</td><td>j</td></tr><tr><td>75</td><td>k</td></tr><tr><td>76</td><td>l</td></tr><tr><td>77</td><td>m</td></tr><tr><td>78</td><td>n</td></tr><tr><td>79</td><td>o</td></tr><tr><td>80</td><td>p</td></tr><tr><td>81</td><td>q</td></tr><tr><td>82</td><td>r</td></tr><tr><td>83</td><td>s</td></tr><tr><td>84</td><td>t</td></tr><tr><td>85</td><td>u</td></tr><tr><td>86</td><td>v</td></tr><tr><td>87</td><td>w</td></tr><tr><td>88</td><td>x</td></tr><tr><td>89</td><td>y</td></tr><tr><td>90</td><td>z</td></tr><tr><td>91</td><td>Windows Key / Left ⌘ / Chromebook Search key</td></tr><tr><td>92</td><td>right window key</td></tr><tr><td>93</td><td>Windows Menu / Right ⌘</td></tr><tr><td>95</td><td>sleep</td></tr><tr><td>96</td><td>numpad 0</td></tr><tr><td>97</td><td>numpad 1</td></tr><tr><td>98</td><td>numpad 2</td></tr><tr><td>99</td><td>numpad 3</td></tr><tr><td>100</td><td>numpad 4</td></tr><tr><td>101</td><td>numpad 5</td></tr><tr><td>102</td><td>numpad 6</td></tr><tr><td>103</td><td>numpad 7</td></tr><tr><td>104</td><td>numpad 8</td></tr><tr><td>105</td><td>numpad 9</td></tr><tr><td>106</td><td>multiply</td></tr><tr><td>107</td><td>add</td></tr><tr><td>108</td><td>numpad period (firefox)</td></tr><tr><td>109</td><td>subtract</td></tr><tr><td>110</td><td>decimal point</td></tr><tr><td>111</td><td>divide</td></tr><tr><td>112</td><td>f1</td></tr><tr><td>113</td><td>f2</td></tr><tr><td>114</td><td>f3</td></tr><tr><td>115</td><td>f4</td></tr><tr><td>116</td><td>f5</td></tr><tr><td>117</td><td>f6</td></tr><tr><td>118</td><td>f7</td></tr><tr><td>119</td><td>f8</td></tr><tr><td>120</td><td>f9</td></tr><tr><td>121</td><td>f10</td></tr><tr><td>122</td><td>f11</td></tr><tr><td>123</td><td>f12</td></tr><tr><td>124</td><td>f13</td></tr><tr><td>125</td><td>f14</td></tr><tr><td>126</td><td>f15</td></tr><tr><td>127</td><td>f16</td></tr><tr><td>128</td><td>f17</td></tr><tr><td>129</td><td>f18</td></tr><tr><td>130</td><td>f19</td></tr><tr><td>131</td><td>f20</td></tr><tr><td>132</td><td>f21</td></tr><tr><td>133</td><td>f22</td></tr><tr><td>134</td><td>f23</td></tr><tr><td>135</td><td>f24</td></tr><tr><td>144</td><td>num lock</td></tr><tr><td>145</td><td>scroll lock</td></tr><tr><td>160</td><td>^</td></tr><tr><td>161</td><td>!</td></tr><tr><td>162</td><td>؛ (arabic semicolon)</td></tr><tr><td>163</td><td>#</td></tr><tr><td>164</td><td>$</td></tr><tr><td>165</td><td>ù</td></tr><tr><td>166</td><td>page backward</td></tr><tr><td>167</td><td>page forward</td></tr><tr><td>168</td><td>refresh</td></tr><tr><td>169</td><td>closing paren (AZERTY)</td></tr><tr><td>170</td><td>*</td></tr><tr><td>171</td><td>~ + * key</td></tr><tr><td>172</td><td>home key</td></tr><tr><td>173</td><td>minus (firefox), mute/unmute</td></tr><tr><td>174</td><td>decrease volume level</td></tr><tr><td>175</td><td>increase volume level</td></tr><tr><td>176</td><td>next</td></tr><tr><td>177</td><td>previous</td></tr><tr><td>178</td><td>stop</td></tr><tr><td>179</td><td>play/pause</td></tr><tr><td>180</td><td>e-mail</td></tr><tr><td>181</td><td>mute/unmute (firefox)</td></tr><tr><td>182</td><td>decrease volume level (firefox)</td></tr><tr><td>183</td><td>increase volume level (firefox)</td></tr><tr><td>186</td><td>semi-colon / ñ</td></tr><tr><td>187</td><td>equal sign</td></tr><tr><td>188</td><td>comma</td></tr><tr><td>189</td><td>dash</td></tr><tr><td>190</td><td>period</td></tr><tr><td>191</td><td>forward slash / ç</td></tr><tr><td>192</td><td>grave accent / ñ / æ / ö</td></tr><tr><td>193</td><td>?, / or °</td></tr><tr><td>194</td><td>numpad period (chrome)</td></tr><tr><td>219</td><td>open bracket</td></tr><tr><td>220</td><td>back slash</td></tr><tr><td>221</td><td>close bracket / å</td></tr><tr><td>222</td><td>single quote / ø / ä</td></tr><tr><td>223</td><td>`</td></tr><tr><td>224</td><td>left or right ⌘ key (firefox)</td></tr><tr><td>225</td><td>altgr</td></tr><tr><td>226</td><td>&lt; /git &gt;, left back slash</td></tr><tr><td>230</td><td>GNOME Compose Key</td></tr><tr><td>231</td><td>ç</td></tr><tr><td>233</td><td>XF86Forward</td></tr><tr><td>234</td><td>XF86Back</td></tr><tr><td>235</td><td>non-conversion</td></tr><tr><td>240</td><td>alphanumeric</td></tr><tr><td>242</td><td>hiragana/katakana</td></tr><tr><td>243</td><td>half-width/full-width</td></tr><tr><td>244</td><td>kanji</td></tr><tr><td>251</td><td>unlock trackpad (Chrome/Edge)</td></tr><tr><td>255</td><td>toggle touchpad</td></tr></tbody>
+    </table>
+    <div class="wrap hide" aria-live="polite" aria-atomic="true">
+      <p class="keycode-display hide">83</p>
+      <p class="text-display hide">Press any key to get the JavaScript event keycode</p>
+      <div class="cards active">
+        <div class="card item-key">
+          <div class="card-header">event.key</div>
+          <div class="card-main">
+            <div class="main-description">s</div>
+          </div>
+        </div>
+        <div class="card item-location">
+          <div class="card-header">event.location
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/location" target="_blank" rel="noopener" class="more-info"></a>
+          </div>
+          <div class="card-main">
+            <div class="main-description">0 <span class="text-muted">(General keys)</span></div>
+          </div>
+        </div>
+        <div class="card item-which">
+          <div class="card-header">
+            event.which
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent" target="_blank" rel="noopener" class="deprecated-link">(deprecated)</a>
+          </div>
+          <div class="card-main">
+            <div class="main-description">83</div>
+          </div>
+        </div>
+        <div class="card item-code">
+          <div class="card-header">event.code</div>
+          <div class="card-main">
+            <div class="main-description">KeyS</div>
+          </div>
+        </div>
+      </div>
+      <div class="mobile-input">
+      </div>
+    </div>
+    <button onclick="{toggleTable()}" class="table-toggle-button">⬅</button>
+  </div>
+
+  
+
+  <script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js');
+    }
+  </script>
+  <script title="scripts.js" type="text/javascript">
+const keyCodes = {
+  0: 'That key has no keycode',
+  3: 'break',
+  8: 'backspace / delete',
+  9: 'tab',
+  12: 'clear',
+  13: 'enter',
+  16: 'shift',
+  17: 'ctrl',
+  18: 'alt',
+  19: 'pause/break',
+  20: 'caps lock',
+  21: 'hangul',
+  25: 'hanja',
+  27: 'escape',
+  28: 'conversion',
+  29: 'non-conversion',
+  32: 'spacebar',
+  33: 'page up',
+  34: 'page down',
+  35: 'end',
+  36: 'home',
+  37: 'left arrow',
+  38: 'up arrow',
+  39: 'right arrow',
+  40: 'down arrow',
+  41: 'select',
+  42: 'print',
+  43: 'execute',
+  44: 'Print Screen',
+  45: 'insert',
+  46: 'delete',
+  47: 'help',
+  48: '0',
+  49: '1',
+  50: '2',
+  51: '3',
+  52: '4',
+  53: '5',
+  54: '6',
+  55: '7',
+  56: '8',
+  57: '9',
+  58: ':',
+  59: 'semicolon (firefox), equals',
+  60: '<',
+  61: 'equals (firefox)',
+  63: 'ß',
+  64: '@ (firefox)',
+  65: 'a',
+  66: 'b',
+  67: 'c',
+  68: 'd',
+  69: 'e',
+  70: 'f',
+  71: 'g',
+  72: 'h',
+  73: 'i',
+  74: 'j',
+  75: 'k',
+  76: 'l',
+  77: 'm',
+  78: 'n',
+  79: 'o',
+  80: 'p',
+  81: 'q',
+  82: 'r',
+  83: 's',
+  84: 't',
+  85: 'u',
+  86: 'v',
+  87: 'w',
+  88: 'x',
+  89: 'y',
+  90: 'z',
+  91: 'Windows Key / Left ⌘ / Chromebook Search key',
+  92: 'right window key',
+  93: 'Windows Menu / Right ⌘',
+  95: 'sleep',
+  96: 'numpad 0',
+  97: 'numpad 1',
+  98: 'numpad 2',
+  99: 'numpad 3',
+  100: 'numpad 4',
+  101: 'numpad 5',
+  102: 'numpad 6',
+  103: 'numpad 7',
+  104: 'numpad 8',
+  105: 'numpad 9',
+  106: 'multiply',
+  107: 'add',
+  108: 'numpad period (firefox)',
+  109: 'subtract',
+  110: 'decimal point',
+  111: 'divide',
+  112: 'f1',
+  113: 'f2',
+  114: 'f3',
+  115: 'f4',
+  116: 'f5',
+  117: 'f6',
+  118: 'f7',
+  119: 'f8',
+  120: 'f9',
+  121: 'f10',
+  122: 'f11',
+  123: 'f12',
+  124: 'f13',
+  125: 'f14',
+  126: 'f15',
+  127: 'f16',
+  128: 'f17',
+  129: 'f18',
+  130: 'f19',
+  131: 'f20',
+  132: 'f21',
+  133: 'f22',
+  134: 'f23',
+  135: 'f24',
+  144: 'num lock',
+  145: 'scroll lock',
+  160: '^',
+  161: '!',
+  162: '؛ (arabic semicolon)',
+  163: '#',
+  164: '$',
+  165: 'ù',
+  166: 'page backward',
+  167: 'page forward',
+  168: 'refresh',
+  169: 'closing paren (AZERTY)',
+  170: '*',
+  171: '~ + * key',
+  172: 'home key',
+  173: 'minus (firefox), mute/unmute',
+  174: 'decrease volume level',
+  175: 'increase volume level',
+  176: 'next',
+  177: 'previous',
+  178: 'stop',
+  179: 'play/pause',
+  180: 'e-mail',
+  181: 'mute/unmute (firefox)',
+  182: 'decrease volume level (firefox)',
+  183: 'increase volume level (firefox)',
+  186: 'semi-colon / ñ',
+  187: 'equal sign',
+  188: 'comma',
+  189: 'dash',
+  190: 'period',
+  191: 'forward slash / ç',
+  192: 'grave accent / ñ / æ / ö',
+  193: '?, / or °',
+  194: 'numpad period (chrome)',
+  219: 'open bracket',
+  220: 'back slash',
+  221: 'close bracket / å',
+  222: 'single quote / ø / ä',
+  223: '`',
+  224: 'left or right ⌘ key (firefox)',
+  225: 'altgr',
+  226: '< /git >, left back slash',
+  230: 'GNOME Compose Key',
+  231: 'ç',
+  233: 'XF86Forward',
+  234: 'XF86Back',
+  235: 'non-conversion',
+  240: 'alphanumeric',
+  242: 'hiragana/katakana',
+  243: 'half-width/full-width',
+  244: 'kanji',
+  251: "unlock trackpad (Chrome/Edge)",
+  255: 'toggle touchpad',
+};
+
+const keyLocations = {
+  0: 'General keys',
+  1: 'Left-side modifier keys',
+  2: 'Right-side modifier keys',
+  3: 'Numpad',
+};
+
+const body = document.querySelector('body');
+const mobileInputDiv = document.querySelector('.mobile-input');
+
+const canvas = document.querySelector('canvas');
+const ctx = canvas.getContext('2d');
+ctx.textBaseline = 'middle';
+ctx.textAlign = 'center';
+ctx.font = '110px sans-serif';
+
+const tableBody = document.querySelector('.table-body');
+for (let key in keyCodes){
+  const row = document.createElement('tr');
+  row.innerHTML += `<td>${key}</td>`;
+  row.innerHTML += `<td>${keyCodes[key]}</td>`;
+  tableBody.appendChild(row);
+}
+
+function toggleTable() {
+  const table = document.querySelector('.table');
+  
+  // Toggle main content and table
+  document.querySelector('.wrap').classList.toggle('hide');
+  document.querySelector('.keycode-display').classList.toggle('hide');
+  table.classList.toggle('hide');
+
+  // If hidden, show back arrow
+  const hidden = table.classList.contains('hide');
+  document.querySelector('.table-toggle-button').textContent = hidden ? 'Table' : '⬅';
+}
+
+function drawNumberToCanvas(number) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = 'black';
+  ctx.fillText(number, canvas.width / 2, canvas.height / 2, canvas.width);
+  const data = canvas.toDataURL('image/png');
+
+  const link = document.querySelector("link[rel*='icon']");
+  link.type = 'image/x-icon';
+  link.href = data;
+}
+
+document.addEventListener('touchstart', function(e) {
+  if (document.querySelector('.mobile-input input') !== null) return;
+  if (e.target.tagName === 'BUTTON') return;
+  
+  const input = document.createElement('input');
+  input.setAttribute('type', 'text');
+  mobileInputDiv.appendChild(input);
+
+  // For some reason, the focus is immediately lost unless there is a delay on setting the focus
+  setTimeout(function() {
+    input.focus();
+  }, 100);
+});
+
+body.onkeydown = function(e) {
+  if (!e.metaKey) {
+    e.preventDefault();
+  }
+  drawNumberToCanvas(e.keyCode);
+
+  // Main e.keyCode display
+  document.querySelector('.keycode-display').innerHTML = e.keyCode;
+
+  // Show the cards with all
+  var cards = document.querySelector('.cards');
+  cards.classList.add('active');
+  cards.classList.remove('hide');
+  document.querySelector('.text-display').classList.add('hide');
+
+  // Check if Key_Values is Unidentified then redirect to docs
+  var newKeyText = '';
+  if (e.key != null && e.key === 'Unidentified'){
+    newKeyText = '<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values#Special_values" target="_blank" rel="noopener">Unidentified</a>';
+  } else if (e.key == ' '){
+    newKeyText = `<span class="text-muted">(Space character)</span>`;
+  } else {
+    newKeyText = e.key || '';
+  }
+
+  // Check if location is Unidentified then redirect to docs
+  var newLocationText = '';
+  var newLocationFriendlyText = '';
+  if (e.location == null) {
+    newLocationFriendlyText = 'Unknown';
+  }
+  else if (!(e.location in keyLocations)) {
+    newLocationFriendlyText = '<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/location" target="_blank" rel="noopener">Other</a>';
+  }
+  else {
+    newLocationFriendlyText = keyLocations[e.location];
+  }
+
+  if (newLocationFriendlyText != 'Unknown') {
+    newLocationText = `${e.location} <span class="text-muted">(${newLocationFriendlyText})</span>`;
+  }
+  else {
+    newLocationText = newLocationFriendlyText;
+  }
+
+  // Check if code is Unidentified then redirect to docs
+  var newCodeText = '';
+  if (e.code != null && e.code === 'Unidentified'){
+    newCodeText = '<a href="https://w3c.github.io/uievents-code/#table-key-code-special" target="_blank" rel="noopener">Unidentified</a>';
+  } else {
+    newCodeText = e.code || '';
+  }
+
+  // Clear input if manually entered
+  const mobileInput = document.querySelector('.mobile-input input');
+  if (mobileInput !== null) {
+    mobileInput.value = '';
+  }
+
+  document.querySelector('.item-key .main-description').innerHTML = newKeyText;
+  document.querySelector('.item-location .main-description').innerHTML = newLocationText;
+  document.querySelector('.item-which .main-description').innerHTML = e.which || '';
+  document.querySelector('.item-code .main-description').innerHTML = newCodeText;
+
+  // document.querySelector('.text-display').innerHTML =
+  //   keyCodes[e.keyCode] ||
+  //   `huh? Let me know what browser and key this was. <a href="https://github.com/wesbos/keycodes/issues/new?title=Missing keycode ${e.keyCode}&body=Tell me what key it was or even better, submit a Pull request!">Submit to Github</a>`;
+};
+
+(function(i, s, o, g, r, a, m) {
+  i.GoogleAnalyticsObject = r;
+  (i[r] =
+    i[r] ||
+    function() {
+      (i[r].q = i[r].q || []).push(arguments);
+    }),
+    (i[r].l = 1 * new Date());
+  (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+  a.async = 1;
+  a.src = g;
+  m.parentNode.insertBefore(a, m);
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', 'UA-50371747-1', 'keycode.info');
+ga('send', 'pageview');
+
+drawNumberToCanvas('⌨️');
+  </script>
+  <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+
+
+
+</body></html>
