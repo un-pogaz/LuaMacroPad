@@ -5,60 +5,56 @@ local deviceID = "VID_145F";
 -- Defined here your Macros, used the values obtained with “MacroPad - test”
 -- To define a key combination, write the values in order of execution and separated by commas
 
--- lmc_spawn() print("") lmc_sleep(ms)
--- mp_keys_input(keys_send, input)
--- mp_write_text(unicode)
-								-- mp_keys(keys_send) mp_sleep_input(n_input) mp_sleep_text(text)
 local macros = {
 	
 	["96"] = function() -- 0
-		mp_keys_input("^%{TAB}", 2);
+		mp_input_keys("^%{TAB}", 2);
 		mp_sleep_input(1);
-		mp_keys_input("{ENTER}", 1);
+		mp_input_keys("{ENTER}", 1);
 	end;
 	
 	["110"] = function() -- .
-		mp_keys_input("{END}{ENTER}", 2);
+		mp_input_keys("{END}{ENTER}", 2);
 		mp_write_text("<p></p>");
-		mp_keys_input("{LEFT 4}", 4);
+		mp_input_keys("{LEFT 4}", 4);
 	end;
 	
 	["32"] = function() -- SPACE
-		mp_keys_input("^c",1);
-		mp_keys_input("^%{TAB}", 2);
+		mp_input_keys("^c",1);
+		mp_input_keys("^%{TAB}", 2);
 		mp_sleep_input(3);
-		mp_keys_input("{ENTER}", 1);
+		mp_input_keys("{ENTER}", 1);
 	end;
 	
 	["97"] = function() -- 1
 		mp_write_text(" style=\"\" ");
-		mp_keys_input("{LEFT 2}", 2);
+		mp_input_keys("{LEFT 2}", 2);
 	end;
 	
 	["98"] = function() -- 2
 		mp_write_text(" class=\"\" ");
-		mp_keys_input("{LEFT 2}", 2);
+		mp_input_keys("{LEFT 2}", 2);
 	end;
 	
 	["99"] = function() -- 3
-		mp_keys_input("{END}{ENTER}", 2);
+		mp_input_keys("{END}{ENTER}", 2);
 		mp_write_text("<p>");
-		mp_keys_input("^v",1);
+		mp_input_keys("^v",1);
 		mp_write_text("</p>");
-		mp_keys_input("{LEFT 4}", 4);
+		mp_input_keys("{LEFT 4}", 4);
 	end;
 	
 	["100"] = function() -- 4
-		mp_keys_input("^r",1);
-		mp_keys_input("{END}", 2);
-		mp_keys_input("^+{LEFT}", 2);
-		mp_keys_input("^v",1);
-		mp_keys_input("{ENTER}", 1);
+		mp_input_keys("^r",1);
+		mp_input_keys("{END}", 2);
+		mp_input_keys("^+{LEFT}", 2);
+		mp_input_keys("^v",1);
+		mp_input_keys("{ENTER}", 1);
 	end;
 	
 	["101"] = function() -- 5
 		mp_write_text("<span class=\"\"></span>");
-		mp_keys_input("{LEFT 9}", 9);
+		mp_input_keys("{LEFT 9}", 9);
 	end;
 	
 	["102"] = function() -- 6
@@ -66,51 +62,51 @@ local macros = {
 	end;
 	
 	["103"] = function() -- 7
-		mp_keys_input("{END}{ENTER}", 2);
+		mp_input_keys("{END}{ENTER}", 2);
 		mp_write_text("<ol></ol>");
-		mp_keys_input("{LEFT 5}{ENTER 2}{UP}{END}", 9);
+		mp_input_keys("{LEFT 5}{ENTER 2}{UP}{END}", 9);
 		mp_write_text("<li></li>");
-		mp_keys_input("{LEFT 5}", 5);
+		mp_input_keys("{LEFT 5}", 5);
 	end;
 	
 	["104"] = function() -- 8
-		mp_keys_input("{END}{ENTER}", 2);
+		mp_input_keys("{END}{ENTER}", 2);
 		mp_write_text("<li></li>");
-		mp_keys_input("{LEFT 5}", 5);
+		mp_input_keys("{LEFT 5}", 5);
 	end;
 	
 	["105"] = function() -- 9
-		mp_keys_input("{END}{ENTER}", 2);
+		mp_input_keys("{END}{ENTER}", 2);
 		mp_write_text("<ul></ul>");
-		mp_keys_input("{LEFT 5}{ENTER 2}{UP}{END}", 9);
+		mp_input_keys("{LEFT 5}{ENTER 2}{UP}{END}", 9);
 		mp_write_text("<li></li>");
-		mp_keys_input("{LEFT 5}", 5);
+		mp_input_keys("{LEFT 5}", 5);
 	end;
 	
 	["13"] = function() -- ENTER
-		mp_keys_input("^v",1);
+		mp_input_keys("^v",1);
 	end;
 	
 	["107"] = function() -- +
-		mp_keys_input("^c",1);
+		mp_input_keys("^c",1);
 	end;
 	
 	["109"] = function() -- -
-		mp_keys_input("^x",1);
+		mp_input_keys("^x",1);
 	end;
 	
 	["8"] = function() -- DEL
-		mp_keys_input("^s",1);
+		mp_input_keys("^s",1);
 	end;
 	
 	["111"] = function() -- /
-		mp_keys_input("^x",1);
-		mp_keys_input("{DEL 3}",3);
-		mp_keys_input("{TAB 2}",2);
-		mp_keys_input("^v",1);
-		mp_keys_input("+{TAB}",2);
-		mp_keys_input("+{TAB}",2);
-		mp_keys_input("{ENTER}",1);
+		mp_input_keys("^x",1);
+		mp_input_keys("{DEL 3}",3);
+		mp_input_keys("{TAB 2}",2);
+		mp_input_keys("^v",1);
+		mp_input_keys("+{TAB}",2);
+		mp_input_keys("+{TAB}",2);
+		mp_input_keys("{ENTER}",1);
 	end;
 	
 	["106"] = function() -- *
@@ -118,50 +114,45 @@ local macros = {
 	end;
 	
 	["9"] = function() -- TAB
-		mp_keys_input("{END}{ENTER}", 2);
+		mp_input_keys("{END}{ENTER}", 2);
 		mp_write_text("<table class=\"tcenter\">")
-		mp_keys_input("{ENTER}", 1);
+		mp_input_keys("{ENTER}", 1);
 		mp_write_text("<tbody>");
-		mp_keys_input("{ENTER}", 1);
+		mp_input_keys("{ENTER}", 1);
 		mp_write_text("<tr>");
-		mp_keys_input("{ENTER}", 1);
+		mp_input_keys("{ENTER}", 1);
 		mp_write_text("  <td>1</td>")
-		mp_keys_input("{ENTER}", 1);
+		mp_input_keys("{ENTER}", 1);
 		mp_write_text("  <td>2</td>")
-		mp_keys_input("{ENTER}", 1);
+		mp_input_keys("{ENTER}", 1);
 		mp_write_text("</tr>");
-		mp_keys_input("{ENTER}", 1);
+		mp_input_keys("{ENTER}", 1);
 		mp_write_text("<tr>");
-		mp_keys_input("{ENTER}", 1);
+		mp_input_keys("{ENTER}", 1);
 		mp_write_text("  <td>3</td>")
-		mp_keys_input("{ENTER}", 1);
+		mp_input_keys("{ENTER}", 1);
 		mp_write_text("  <td>4</td>")
-		mp_keys_input("{ENTER}", 1);
+		mp_input_keys("{ENTER}", 1);
 		mp_write_text("</tr>");
-		mp_keys_input("{ENTER}", 1);
+		mp_input_keys("{ENTER}", 1);
 		mp_write_text("</tbody>");
-		mp_keys_input("{ENTER}", 1);
+		mp_input_keys("{ENTER}", 1);
 		mp_write_text("</table>");
 	end;
 	
 };
 
-
---[[ how to use
-
-]]
-
 --[[ function intern  mp_
-
 
 mp_write_text(text)
 Writes a text
 
 mp_unicode_write(codepoint)
-Write a Unicode character from its decimal Point Code
+Write a Unicode character from a decimal Point Code
 
-mp_input_keys(keys, input)
-
+mp_input_keys(keys, n_input)
+Send a serie of inputs whit the LuaMacro vocabulary
+Specified the number of inputs to avoid unwanted results
 
 mp_input_send(input)
 Press and release a key based its input value
@@ -175,9 +166,19 @@ Release a key based its input value
 mp_sleep_time(ms_time)
 Sleep and wait for a specifique time (in ms)
 
+
+-- Other function
+
+print("")
+Write a message in the LuaMacro logs
+
+lmc_spawn(exe)
+lmc_spawn(exe, arg)
+Lauch a executable
+
 ]]
 
---[[ WIKI
+--[[ WIKI LuaMacro Vocabulary
 
 Modifiers (shifts) for keystroke sequence
 Use these keys to modify keystrokes. Foe example +a sends shift+a (in other words, A), ^c sends ctrl+c.
@@ -188,7 +189,6 @@ Use parenthesis to modify several keystrokes at once; +(abc) sends shift+a, shif
 	+ = Shift
 	# = Win
 	& = Tab
-
 
 Left or Right modifiers for keystroke sequence
 Keyboards usually have two copies of modifier keys, one on the left and one on the right. Use these when it matters which key is used.
@@ -204,7 +204,6 @@ Keyboards usually have two copies of modifier keys, one on the left and one on t
 	+> = Right Shift
 	#> = Right Win
 
-
 Special characters
 	~ = Enter Key
 	( = Begin modifier group (see below)
@@ -212,11 +211,9 @@ Special characters
 	{ = Begin key name text (see below)
 	} = End key name text (see below)
 
-
 Modifier Grouping
 Surround characters or key names with parentheses in order to modify them as a group.
 For example, +abc shifts only a, while +(abc) shifts all three characters.
-
 
 Key Names
 Refer to these keys by surrounding them with curly braces. For example, {F3} sends the F3 key.
@@ -255,11 +252,6 @@ Refer to these keys by surrounding them with curly braces. For example, {F3} sen
 Repeating keys
 Follow the keyname with a space and a number to send the specified key a given number of times
 e.g. {left 6} will send left six times
-
-
-Delay function
-lmc_sleep(1500)
-The argument of lmc_sleep is delay in miliseconds
 
 ]]
 
@@ -313,7 +305,6 @@ print("");
 
 lmc_device_set_name("MacroPad", deviceID);
 
-
 function mp_sleep_time(ms_time)
 	ms_time = tonumber(ms_time);
 	if (ms_time == nil or ms_time < 0) then ms_time = 0 end;
@@ -341,14 +332,15 @@ function mp_input_release(input)
 end;
 
 -- Not perfect. Change ?
-function mp_input_keys(keys, input)
+function mp_input_keys(keys, n_input)
 	if (keys == nil) then keys = "" end;
-	if (input == nil) then input = "" end;
-	input = tonumber(input);
-	if (input == nil or input <= 0) then return end;
+	if (n_input == nil) then n_input = 0 end;
+	keys = tostring(keys);
+	n_input = tonumber(n_input);
+	if (n_input == nil or n_input <= 0) then return end;
 	local t_input = 10;
 	lmc_send_keys(keys, t_input);
-	mp_sleep_time((input + 1) * t_input);
+	mp_sleep_time((n_input + 1) * t_input);
 end;
 
 function mp_write_text(text)
@@ -388,6 +380,8 @@ function mp_unicode_write(codepoint)
 	end;
 end;
 
+--[[ Code found on the internet 
+https://stackoverflow.com/questions/9079853/lua-print-integer-as-a-binary ]]
 function toBits(num, bits)
 	-- returns a table of bits, most significant first.
 	bits = bits or math.max(1, select(2, math.frexp(num)))
