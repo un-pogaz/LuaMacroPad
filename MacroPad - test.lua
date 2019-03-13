@@ -62,9 +62,10 @@ print("The letter displayed does not match on the key? It was normal... and comp
 print("");
 
 lmc_set_handler("MacroPad", function(pressByte, pressDirection)
-	if pressDirection == 0 then
-		return;
-	else
-		print("Key pressed:   " .. tostring(pressByte) .. "   ‘" .. string.char(pressByte) .. "’"); -- Feedback the pressed key
-	end;
+  if pressDirection == 0 then
+    return;
+  else
+    -- Feedback the pressed key
+    print("Key pressed:   " .. tostring(pressByte) .. "   ‘" .. string.char(pressByte) .. "’");
+  end;
 end);
