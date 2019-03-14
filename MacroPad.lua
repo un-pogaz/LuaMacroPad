@@ -9,7 +9,7 @@ local macros = {
 	
 	["96"] = function() -- 0
 		mp_input_keys("^%{TAB}", 2);
-		mp_sleep_input(1);
+		mp_sleep_time(10);
 		mp_input_keys("{ENTER}", 1);
 	end;
 	
@@ -22,7 +22,7 @@ local macros = {
 	["32"] = function() -- SPACE
 		mp_input_keys("^c",1);
 		mp_input_keys("^%{TAB}", 2);
-		mp_sleep_input(3);
+		mp_sleep_time(30);
 		mp_input_keys("{ENTER}", 1);
 	end;
 	
@@ -166,7 +166,6 @@ Release a key based its input value
 mp_sleep_time(ms_time)
 Sleep and wait for a specifique time (in ms)
 
-
 -- Other function
 
 print("")
@@ -174,11 +173,11 @@ Write a message in the LuaMacro logs
 
 lmc_spawn(exe)
 lmc_spawn(exe, arg)
-Lauch a executable
+Lauch a executable with optionals arguments
 
 ]]
 
---[[ WIKI LuaMacro Vocabulary
+--[[ LuaMacro Vocabulary
 
 Modifiers (shifts) for keystroke sequence
 Use these keys to modify keystrokes. Foe example +a sends shift+a (in other words, A), ^c sends ctrl+c.
@@ -370,13 +369,16 @@ function mp_unicode_write(codepoint)
 		local x = string.sub(utf32, 17, 22);
 		local y = string.sub(utf32, 23, 32);
 		
-		print("110110" .. w .. x)
-		print("110111" .. y)
+		local hs = "110110" .. w .. x;
+		local ls = "110111" .. y;
 		
-		lmc_send_input(0, tonumber("110110" .. w .. x, 2), 4)
-		lmc_send_input(0, tonumber("110111" .. y, 2), 4)
-		lmc_send_input(0, tonumber("110110" .. w .. x, 2), 6)
-		lmc_send_input(0, tonumber("110111" .. y, 2), 6)
+		print(hs)
+		print(ls)
+		
+		lmc_send_input(0, tonumber(hs, 2), 4)
+		lmc_send_input(0, tonumber(ls, 2), 4)
+		lmc_send_input(0, tonumber(hs, 2), 6)
+		lmc_send_input(0, tonumber(ls, 2), 6)
 	end;
 end;
 
