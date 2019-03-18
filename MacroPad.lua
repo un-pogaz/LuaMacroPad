@@ -147,9 +147,6 @@ local macros = {
 mp_write_text(text)
 Writes a text
 
-mp_unicode_write(codepoint)
-Write a Unicode character from a decimal Point Code
-
 mp_input_keys(keys, n_input)
 Send a serie of inputs whit the LuaMacro vocabulary
 Specified the number of inputs to avoid unwanted results
@@ -347,12 +344,12 @@ function mp_write_text(text)
 	local tbl = utf8_explode(tostring(text));
 	if (tbl.len > 0) then
 		for i, c in pairs(tbl.codepoints) do
-			mp_unicode_write(c);
+			write_unicode_char(c);
 		end;
 	end;
 end;
 
-function mp_unicode_write(codepoint)
+function write_unicode_char(codepoint)
 	if (codepoint == nil) then codepoint = "" end;
 	codepoint = tonumber(codepoint);
 	if (codepoint == nil or codepoint < 0 or codepoint >= 0xd800 and codepoint <= 0xdfff or codepoint >= 0x10ffff) then return end;
